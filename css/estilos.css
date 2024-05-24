@@ -1,0 +1,172 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: linear-gradient(to bottom, #c00707, #be2702, #bc3800, #b94500, #b75000, #b05a00, #aa6300, #a36b00, #977303, #8a7a0f, #7e801e, #72852c);
+}
+
+/* Estilos para el navbar */
+nav {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-right: 20px;
+}
+
+/* Estilos para la sección de bienvenida */
+.inicio {
+    height: 100vh;
+    background-image: url('../assets/img/index-1280.webp');
+    background-size: cover;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+}
+
+.inicio::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Cambia el último valor para ajustar la opacidad */
+}
+
+.inicio h1,
+.inicio .scroll-msg {
+    position: relative;
+    z-index: 1;
+}
+
+.subh3 {
+    font-size: 2.3em;
+    text-align: center;
+
+}
+
+/* Estilos para la sección de marcas */
+.marcas {
+    background-color: #f4f4f4;
+    padding: 20px;
+    text-align: center;
+}
+
+.marca-btn {
+    background-color: #ccc;
+    color: #333;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    margin: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.marca-btn:hover {
+    background-color: #999;
+}
+
+
+/* FORMULARIO DE CONTACTO */
+.formulario {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: #443c3c;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    max-width: 700px;
+    width: 100%;
+    height: auto;
+    margin: auto;
+
+    .formulario__info {
+        padding: 16px;
+
+        .formulario__info__h2 {
+            color: rgba(255, 255, 255, 0.637);
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
+
+        .formulario__info__detalles {
+            color: rgba(255, 255, 255, 0.637);
+
+            .formulario__info__detalles__item {
+                margin-bottom: 8px;
+            }
+
+            .contact-social a {
+                color: #fff;
+                margin-right: 8px;
+            }
+        }
+
+    }
+
+    .formulario__contacto {
+        padding: 16px;
+
+        .formulario__contacto__container {
+            margin-bottom: 16px;
+
+            .contacto__label {
+                display: block;
+                font-size: 16px;
+                color: rgba(255, 255, 255, 0.637);
+                margin-bottom: 8px;
+            }
+
+            .contacto__input {
+                width: 100%;
+                padding: 8px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+            }
+
+        }
+
+        .contacto__button {
+            background-color: #4caf50;
+            color: #fff;
+            font-size: 16px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .contacto__button:hover {
+            background-color: #45a049;
+        }
+    }
+}
+
+.container {
+    max-width: 1200px;
+    gap: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    justify-content: center;
+
+}
+
+.car__cards {
+    width: 10%;
+}
