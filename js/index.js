@@ -1,6 +1,7 @@
 const carrito = []
 
 function principal() {
+    alert("TODA LA INFORMACION SERA PROYECTADA EN LA CONSOLA")
     let opcion = parseInt(prompt("¿Que desea hacer? \n 1- Ver Productos \n 2- Comprar \n 3- Ver formas de pago \n 4- Ver Carrito \n 5- Salir "))
 
     if (opcion <= 5) {
@@ -111,3 +112,4 @@ function carga__articulos() {
 }
 
 carga__articulos()
+principal()
