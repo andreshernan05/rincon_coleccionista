@@ -18,12 +18,16 @@
 
 <body>
     <header>
-        <nav>
-            <a href="#">Inicio</a>
-            <a href="#">Marcas</a>
-            <a href="#">Contacto</a>
+        <nav class="nav">
+            <a class="nav__a" href="#">Inicio</a>
+            <a class="nav__a" href="#">Marcas</a>
+            <a class="nav__a" href="#">Contacto</a>
+            <div id="container__carrito">
+                <img id=" carrito" class="nav__logo" src="./assets/img/ico/carrito-de-compras.png" title="Ir a Carrito">
+                <span class="contador__carrito" id="contador__carrito">0</span>
+            </div>
         </nav>
-
+        <!--<img src="./assets/img/ico/carrito-de-compra-anadir.png" alt=""> -->
         <div class="inicio">
             <div class="filtro"></div>
             <h1 class=" animate__animated animate__pulse animate__infinite animate__slower">El Rincon Del Coleccionista
@@ -32,12 +36,27 @@
         </div>
     </header>
     <main>
-        <div class="marcas">
-            <h2>Selecciona una marca</h2>
-            <button class="marca-btn">Hot Wheels</button>
-            <button class="marca-btn">M2</button>
-            <button class="marca-btn">Matchbox</button>
+        <div class="div__filtros">
+            <search>
+                <input type="search" id="buscador" placeholder="Escriba el modelo 🔍">
+            </search>
+
+            <div class="filtros">
+                <label>
+                    <input id="filtros__radial" type="radio" name="filtro" value="all"> Todos
+                </label>
+                <label>
+                    <input id="filtros__radial" type="radio" name="filtro" value="sth"> Super treasure hunt
+                </label>
+                <label>
+                    <input id="filtros__radial" type="radio" name="filtro" value="th"> Treasure hunt
+                </label>
+                <label>
+                    <input id="filtros__radial" type="radio" name="filtro" value="cyp"> Cine y Pelicula
+                </label>
+            </div>
         </div>
+
         <div class="container" id="container__cards">
 
         </div>
@@ -83,7 +102,13 @@
 
     </main>
     <footer>
-
+        <ul>
+            <li><i class="fab fa-facebook-f"> </i></li>
+            <li><i class="fab fa-twitter"> </i></li>
+            <li><i class="fab fa-instagram"> </i></li>
+            <li><i class="fab fa-linkedin-in"> </i></li>
+            <li><i class="fab fa-youtube"> </i></li>
+        </ul>
     </footer>
 </body>
 
