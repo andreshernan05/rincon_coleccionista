@@ -26,13 +26,3 @@ const autitos = [
     { codart: crearid(), nombre: 'Super Smooth', imagen: './assets/img/autos/Super Smooth (2004-105).webp', precio: 27500, categoria: 'autos', anio: `2004`, tipo: `sth` },
     { codart: crearid(), nombre: 'volkwagen T2 Pickup', imagen: './assets/img/autos/Volkswagen T2 Pickup (2019-096).webp', precio: 28500, categoria: 'autos', anio: `2019`, tipo: `sth` },
 ]
-
-const pagos = [
-    { id: 0, opcion: 'Efectivo', recargo: 0 },
-    { id: 1, opcion: 'Debito', recargo: 0 },
-    { id: 2, opcion: '1 Cuotas', recargo: '1%' },
-    { id: 3, opcion: '3 Cuotas', recargo: '3%' },
-    { id: 4, opcion: '6 Cuotas', recargo: '5%' },
-    { id: 5, opcion: 'Transferencia', recargo: 0 }
-
-]

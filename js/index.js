@@ -1,8 +1,8 @@
-const carrito = []
+const carrito = JSON.parse(localStorage.getItem("ordenCompra")) || []
 const contCarrito = document.getElementById("contador__carrito")
-const imgCarrito = document.getElementById("carrito")
+const imgCarrito = document.getElementById("logoCarrito")
 const buscador = document.querySelector("input#buscador")
-const filtroRadio = document.querySelector("input#filtros__radial")
+//const filtroRadio = document.querySelector("input#filtros__radial")
 
 function principal() {
     carga__articulos(autitos)
@@ -15,13 +15,13 @@ function contadorCarrito() {
 
 function enableBtn() {
     const bntadd = document.querySelectorAll("button.boton")
-
     if (bntadd.length > 0) {
         bntadd.forEach((boton) => {
             boton.addEventListener("click", () => {
-                const prodselect = autitos.find((autito) => autito.codart == boton.codart)
+                const prodselect = autitos.find((autito) => autito.codart == boton.id)
                 carrito.push(prodselect)
                 contadorCarrito()
+                localStorage.setItem("ordenCompra", JSON.stringify(carrito))
             })
         })
     }
@@ -36,7 +36,7 @@ function card__html(autito) {
                         <h3>${autito.nombre}</h3>
                         <h4>$${autito.precio}</h4>
                         <div>
-                            <button id:"${autito.codart}" class="add-btn boton">Agregar a Carrito</button>
+                            <button id="${autito.codart}" class="add-btn boton">Agregar a Carrito</button>
                         </div>
                     </figcaption>
                     
@@ -51,20 +51,24 @@ function carga__articulos(autitos) {
     }
 }
 
-/*filtroRadio.addEventListener("click", (e)=>{
-    switch (filtroRadio.value){
-        case "sth":
-            let dbSth = autitos.filter((autito)=>autito.)
-    }
-})*/
-
 // EVENTOS 
 buscador.addEventListener("keydown", (e) => {
     let resultado = autitos.filter((autito) => autito.nombre.toLowerCase().includes(buscador.value.toLowerCase()))
     carga__articulos(resultado)
 })
 
+imgCarrito.addEventListener("click", () => {
+    if (carrito.length > 0) {
+        location.href = "../pages/checkout.html"
+    } else {
+        alert("Debe de agregar al menos un producto")
+    }
+})
 
 
 // FUNCION PRINCIPAL
 principal()
+
+
+
+

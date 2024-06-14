@@ -1,87 +1,57 @@
-<div class="p-4">
-    <div class="flex justify-between items-center border-b pb-2 mb-4">
-        <nav class="space-x-4">
-            <a href="#" class="text-zinc-600 hover:text-zinc-800">Inicio</a>
-            <a href="#" class="text-white bg-blue-500 px-3 py-2 rounded">Ver Carta</a>
-            <a href="#" class="text-zinc-600 hover:text-zinc-800">Pagos</a>
-        </nav>
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>El Rincon Del Coleccionista</title>
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/checkout.css">
+    <script defer src="../js/checkout.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1 id="titulo">Electro-Commerce</h1>
+        <p>Verifica tus productos antes de confirmar la compra:</p>
+        <div class="centrar-div">
+            <button class="button button-outline"><a href="../index.html">Seguir comprando</a></button>
+        </div>
+        <hr>
+    </header>
+    <main>
+        <section>
+            <table>
+                <thead>
+                    <tr>
+                        <th id="tablehead">Producto</th>
+                        <th id="tablehead">Descripción</th>
+                        <th id="tablehead">Importe</th>
+                        <th id="tablehead">Quitar</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+                <tfoot>
+                    <tr class="total-carrito">
+                        <td></td>
+                        <td>TOTAL:</td>
+                        <td id="importeTotalCarrito">$ 0.00</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </section>
+        <div class="centrar-div">
+            <button class="button" id="btnComprar">COMPRAR</button>
+        </div>
+    </main>
+
+    <div id="modal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modal-img">
     </div>
-    <h2 class="text-2xl font-bold mb-4">Carrito de compras</h2>
-    <div class="overflow-x-auto">
-        <table class="min-w-full bg-white">
-            <thead>
-                <tr>
-                    <th class="px-4 py-2 border-b-2">Producto</th>
-                    <th class="px-4 py-2 border-b-2">Precio</th>
-                    <th class="px-4 py-2 border-b-2">Cantidad</th>
-                    <th class="px-4 py-2 border-b-2">Sub total</th>
-                    <th class="px-4 py-2 border-b-2"></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td class="px-4 py-2 border-b">Producto 1</td>
-                    <td class="px-4 py-2 border-b">$15 USD</td>
-                    <td class="px-4 py-2 border-b">
-                        <input type="number" value="1" class="w-12 border rounded text-center" />
-                    </td>
-                    <td class="px-4 py-2 border-b">$15 USD</td>
-                    <td class="px-4 py-2 border-b">
-                        <button class="bg-red-500 text-white px-2 py-1 rounded">
-                            <img aria-hidden="true" alt="trash" src="https://placehold.co/16x16" />
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="px-4 py-2 border-b">Producto 2</td>
-                    <td class="px-4 py-2 border-b">$25 USD</td>
-                    <td class="px-4 py-2 border-b">
-                        <input type="number" value="1" class="w-12 border rounded text-center" />
-                    </td>
-                    <td class="px-4 py-2 border-b">$25 USD</td>
-                    <td class="px-4 py-2 border-b">
-                        <button class="bg-red-500 text-white px-2 py-1 rounded">
-                            <img aria-hidden="true" alt="trash" src="https://placehold.co/16x16" />
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="px-4 py-2 border-b">Producto 3</td>
-                    <td class="px-4 py-2 border-b">$15 USD</td>
-                    <td class="px-4 py-2 border-b">
-                        <input type="number" value="1" class="w-12 border rounded text-center" />
-                    </td>
-                    <td class="px-4 py-2 border-b">$15 USD</td>
-                    <td class="px-4 py-2 border-b">
-                        <button class="bg-red-500 text-white px-2 py-1 rounded">
-                            <img aria-hidden="true" alt="trash" src="https://placehold.co/16x16" />
-                        </button>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="px-4 py-2 border-b">Producto 4</td>
-                    <td class="px-4 py-2 border-b">$25 USD</td>
-                    <td class="px-4 py-2 border-b">
-                        <input type="number" value="1" class="w-12 border rounded text-center" />
-                    </td>
-                    <td class="px-4 py-2 border-b">$25 USD</td>
-                    <td class="px-4 py-2 border-b">
-                        <button class="bg-red-500 text-white px-2 py-1 rounded">
-                            <img aria-hidden="true" alt="trash" src="https://placehold.co/16x16" />
-                        </button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-    <div class="flex justify-between items-center mt-4">
-        <button class="bg-yellow-500 text-white px-4 py-2 rounded">
-            <span class="mr-2">←</span> Continue Comprando
-        </button>
-        <div class="text-lg font-bold">Total $80 USD</div>
-        <button class="bg-green-500 text-white px-4 py-2 rounded">
-            Pagos <span class="ml-2">→</span>
-        </button>
-    </div>
-    <div class="mt-4 text-zinc-600">BaulPHP</div>
-</div>
+
+</body>
+
+</html>
