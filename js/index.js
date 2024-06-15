@@ -7,6 +7,7 @@ const buscador = document.querySelector("input#buscador")
 function principal() {
     carga__articulos(autitos)
     enableBtn()
+    contadorCarrito()
 }
 
 function contadorCarrito() {
