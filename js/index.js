@@ -60,7 +60,7 @@ buscador.addEventListener("keydown", (e) => {
 
 imgCarrito.addEventListener("click", () => {
     if (carrito.length > 0) {
-        location.href = "../pages/checkout.html"
+        location.href = "./pages/checkout.html"
     } else {
         alert("Debe de agregar al menos un producto")
     }
