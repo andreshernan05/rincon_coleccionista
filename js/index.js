@@ -10,6 +10,33 @@ function principal() {
     contadorCarrito()
 }
 
+function mensajes(op) {
+    switch (op) {
+        case 1:
+            Swal.fire({
+                title: "Rincon del Coleccionista",
+                text: "Debe de elegir al menos un producto para continuar",
+                icon: "warning"
+            });
+            break;
+
+        case 2:
+            Swal.fire({
+                title: "Rincon del Coleccionista",
+                text: "Su compra fue realizada con Exito",
+                icon: "success"
+            });
+            break;
+
+        case 3:
+            Toastify({
+                text: "Producto agregado al carrito",
+                duration: 2000,
+                close: true,
+            }).showToast();
+    }
+}
+
 function contadorCarrito() {
     contCarrito.textContent = carrito.length
 }
@@ -23,6 +50,7 @@ function enableBtn() {
                 carrito.push(prodselect)
                 contadorCarrito()
                 localStorage.setItem("ordenCompra", JSON.stringify(carrito))
+                mensajes(3)
             })
         })
     }
@@ -62,7 +90,7 @@ imgCarrito.addEventListener("click", () => {
     if (carrito.length > 0) {
         location.href = "./pages/checkout.html"
     } else {
-        alert("Debe de agregar al menos un producto")
+        mensajes(1)
     }
 })
 
