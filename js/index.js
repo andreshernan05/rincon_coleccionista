@@ -2,7 +2,7 @@ const carrito = JSON.parse(localStorage.getItem("ordenCompra")) || []
 const contCarrito = document.getElementById("contador__carrito")
 const imgCarrito = document.getElementById("logoCarrito")
 const buscador = document.querySelector("input#buscador")
-//const filtroRadio = document.querySelector("input#filtros__radial")
+const filtroRadio = document.querySelector("input#filtros__radial")
 
 function principal() {
     carga__articulos(autitos)
@@ -31,7 +31,7 @@ function mensajes(op) {
         case 3:
             Toastify({
                 text: "Producto agregado al carrito",
-                duration: 2000,
+                duration: 1500,
                 close: true,
             }).showToast();
     }
@@ -80,10 +80,23 @@ function carga__articulos(autitos) {
     }
 }
 
+function filtros() {
+    const filtroSeleccionado = document.querySelector("input[name='filtro']:checked").value;
+    let resultado;
+    if (filtroSeleccionado === "sth") {
+        resultado = autitos;
+    } else {
+        resultado = autitos.filter((autito) => autito.tipo === filtroSeleccionado);
+    }
+    carga__articulos(resultado);
+    enableBtn()
+}
+
 // EVENTOS 
 buscador.addEventListener("keydown", (e) => {
     let resultado = autitos.filter((autito) => autito.nombre.toLowerCase().includes(buscador.value.toLowerCase()))
     carga__articulos(resultado)
+    enableBtn()
 })
 
 imgCarrito.addEventListener("click", () => {
@@ -93,6 +106,8 @@ imgCarrito.addEventListener("click", () => {
         mensajes(1)
     }
 })
+
+filtroRadio.addEventListener("change", filtros)
 
 
 // FUNCION PRINCIPAL

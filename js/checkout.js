@@ -57,14 +57,16 @@ function eliminarProductos() {
                     text: "Sera direccionado a la pagina principal.",
                     icon: "info",
                     confirmButtonText: "OK",
+
                 }).then((result) => {
                     if (result.isConfirmed) {
                         setTimeout(() => {
                             window.location.href = '../index.html';
-                        }, 2500)
+                        }, 1500)
 
                     }
                 })
+                importeTotalCarrito.textContent = "$0"
             }
         })
     })
@@ -82,7 +84,7 @@ function realizarCompra() {
             localStorage.removeItem('ordenCompra');
             setTimeout(() => {
                 window.location.href = '../index.html';
-            }, 2000);
+            }, 1500);
 
         }
     })
