@@ -1,13 +1,27 @@
 const carrito = JSON.parse(localStorage.getItem("ordenCompra")) || []
+
 const contCarrito = document.getElementById("contador__carrito")
 const imgCarrito = document.getElementById("logoCarrito")
 const buscador = document.querySelector("input#buscador")
-const filtroRadio = document.querySelector("input#filtros__radial")
+const radios = document.querySelectorAll("input[type=radio]")
+const autitos = []
+const URLproductos = "https://668733660bc7155dc016f24e.mockapi.io/autitos"
 
 function principal() {
-    carga__articulos(autitos)
-    enableBtn()
+    obtenerProductos()
     contadorCarrito()
+    filtros()
+}
+
+function obtenerProductos() {
+    fetch(URLproductos)
+        .then((response) => response.json())
+        .then((datos) => autitos.push(...datos))
+        .then(() => carga__articulos(autitos))
+        .then(() => enableBtn())
+        .catch((error) => {
+            console.error(error)
+        })
 }
 
 function mensajes(op) {
@@ -34,6 +48,44 @@ function mensajes(op) {
                 duration: 1500,
                 close: true,
             }).showToast();
+            break;
+
+        case 4:
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "En estos momentos no contamos con stock de dichos productos",
+                confirmButtonText: "Aceptar"
+            }).then(() => {
+                radios.checked = false;
+                const defaultRadio = document.querySelector('input[type="radio"][value="all"]');
+                if (defaultRadio) {
+                    defaultRadio.checked = true;
+                }
+                principal()
+            })
+            break;
+
+        case 5:
+            Swal.fire({
+                title: "Marca",
+                text: "Proximamente",
+                icon: "info",
+                confirmButtonColor: '#318aac',
+                confirmButtonText: 'Aceptar'
+            })
+            break;
+
+        case 6:
+            Swal.fire({
+                title: "Contacto",
+                text: "Proximamente",
+                icon: "info",
+                confirmButtonColor: '#318aac',
+                confirmButtonText: 'Aceptar'
+            })
+            break;
+
     }
 }
 
@@ -81,17 +133,49 @@ function carga__articulos(autitos) {
 }
 
 function filtros() {
-    const filtroSeleccionado = document.querySelector("input[name='filtro']:checked").value;
-    let resultado;
-    if (filtroSeleccionado === "sth") {
-        resultado = autitos;
-    } else {
-        resultado = autitos.filter((autito) => autito.tipo === filtroSeleccionado);
-    }
-    carga__articulos(resultado);
-    enableBtn()
-}
 
+    radios.forEach((radio) => {
+        radio.addEventListener("click", () => {
+            if (radio.value === "sth") {
+                let resultado = autitos.filter((autito) => autito.tipo === radio.value)
+                if (resultado.length === 0) {
+                    mensajes(4)
+
+                } else {
+                    carga__articulos(resultado)
+                    enableBtn()
+
+                }
+            } else {
+                if (radio.value === "th") {
+                    let resultado = autitos.filter((autito) => autito.tipo === radio.value)
+                    if (resultado.length === 0) {
+                        mensajes(4)
+
+                    } else {
+                        carga__articulos(resultado)
+                        enableBtn()
+
+                    }
+                } else {
+                    if (radio.value === "cyp") {
+                        let resultado = autitos.filter((autito) => autito.tipo === radio.value)
+                        if (resultado.length === 0) {
+                            mensajes(4)
+
+                        } else {
+                            carga__articulos(resultado)
+                            enableBtn()
+
+                        }
+                    } else {
+                        carga__articulos(autitos)
+                    }
+                }
+            }
+        })
+    })
+}
 // EVENTOS 
 buscador.addEventListener("keydown", (e) => {
     let resultado = autitos.filter((autito) => autito.nombre.toLowerCase().includes(buscador.value.toLowerCase()))
@@ -107,12 +191,34 @@ imgCarrito.addEventListener("click", () => {
     }
 })
 
-filtroRadio.addEventListener("change", filtros)
 
+document.addEventListener('DOMContentLoaded', function () {
+    const opcionesNavbar = document.querySelectorAll('.navsw');
+
+    // Recorrer cada opción y agregar un listener de clic
+    opcionesNavbar.forEach(opcion => {
+        opcion.addEventListener('click', function (e) {
+            e.preventDefault(); // Evitar el comportamiento por defecto del enlace
+
+            // Obtener el texto del enlace clicado
+            const opcionTexto = opcion.textContent.trim();
+
+            // Mostrar SweetAlert según la opción clicada
+            switch (opcionTexto) {
+                case 'Marcas':
+                    mensajes(5)
+                    break;
+                case 'Contacto':
+                    mensajes(6)
+                    break;
+                default:
+                    // Por si acaso, aunque no debería pasar en este ejemplo
+                    console.log('Opción no reconocida');
+            }
+        });
+    });
+});
 
 // FUNCION PRINCIPAL
 principal()
-
-
-
 

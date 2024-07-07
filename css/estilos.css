@@ -2,12 +2,13 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-image: linear-gradient(to bottom, #c00707, #be2702, #bc3800, #b94500, #b75000, #b05a00, #aa6300, #a36b00, #977303, #8a7a0f, #7e801e, #72852c);
+    background: rgb(2, 0, 36);
+    background: linear-gradient(176deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 38%, rgba(0, 212, 255, 1) 100%);
+    /*background-image: linear-gradient(to bottom, #c00707, #be2702, #bc3800, #b94500, #b75000, #b05a00, #aa6300, #a36b00, #977303, #8a7a0f, #7e801e, #72852c);*/
 }
 
 .nav {
-    background-color: #333;
-    color: white;
+    background-color: transparent;
     padding: 10px;
     display: flex;
     align-items: center;
@@ -26,25 +27,50 @@ body {
         cursor: pointer;
     }
 
+
+}
+
+.contador__carrito {
+    position: absolute;
+    top: 960px;
+    /* Ajusta según sea necesario */
+    right: 27px;
+    /* Ajusta según sea necesario */
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 14px;
+}
+
+@media (max-width: 1366px) {
     .contador__carrito {
-        position: absolute;
-        top: 20px;
-        /* Ajusta según sea necesario */
-        right: 27px;
-        /* Ajusta según sea necesario */
-        background-color: red;
-        color: white;
-        border-radius: 50%;
-        padding: 2px 6px;
-        font-size: 14px;
+        top: 675px;
+        /* Ajusta para pantallas más pequeñas */
+    }
+}
+
+@media (max-width: 768px) {
+    .contador__carrito {
+        top: 675px;
+        /* Ajusta aún más para pantallas más pequeñas */
+    }
+}
+
+@media (max-width: 600px) {
+    .contador__carrito {
+        top: 518px;
+        /* Ajusta aún más para pantallas más pequeñas */
     }
 }
 
 /* Estilos para el buscador y filtros */
 .div__filtros {
     padding: 20px;
-    background-color: #f1f1f1;
-    margin-top: 20px;
+    background-color: transparent;
+    border: 2px, solid, rgb(153, 220, 236);
+    border-radius: 5px;
+    margin: 20px;
 }
 
 .div__filtros search {
@@ -68,6 +94,8 @@ body {
     margin-right: 20px;
     display: flex;
     align-items: center;
+    font-size: 1.2em;
+    color: #26a4f2;
 }
 
 .filtros input[type="radio"] {
@@ -142,85 +170,6 @@ body {
 
 .marca-btn:hover {
     background-color: #999;
-}
-
-
-/* FORMULARIO DE CONTACTO */
-.formulario {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    background-color: #443c3c;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    max-width: 700px;
-    width: 100%;
-    height: auto;
-    margin: auto;
-
-    .formulario__info {
-        padding: 16px;
-
-        .formulario__info__h2 {
-            color: rgba(255, 255, 255, 0.637);
-            font-size: 24px;
-            font-weight: bold;
-            margin-bottom: 12px;
-        }
-
-        .formulario__info__detalles {
-            color: rgba(255, 255, 255, 0.637);
-
-            .formulario__info__detalles__item {
-                margin-bottom: 8px;
-            }
-
-            .contact-social a {
-                color: #fff;
-                margin-right: 8px;
-            }
-        }
-
-    }
-
-    .formulario__contacto {
-        padding: 16px;
-
-        .formulario__contacto__container {
-            margin-bottom: 16px;
-
-            .contacto__label {
-                display: block;
-                font-size: 16px;
-                color: rgba(255, 255, 255, 0.637);
-                margin-bottom: 8px;
-            }
-
-            .contacto__input {
-                width: 100%;
-                padding: 8px;
-                border: 1px solid #ccc;
-                border-radius: 4px;
-            }
-
-        }
-
-        .contacto__button {
-            background-color: #4caf50;
-            color: #fff;
-            font-size: 16px;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .contacto__button:hover {
-            background-color: #45a049;
-        }
-    }
 }
 
 .container {
@@ -307,7 +256,6 @@ ul li {
     transition: .5s;
 
 }
-
 
 ul li::before {
     position: absolute;

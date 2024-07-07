@@ -1,11 +1,14 @@
 /* COLORES */
 :root {
-    --naranja-pastel: #FFA726;
+    --naranja-pastel: #318aac;
+    --azul: rgba(9, 9, 121, 1);
+    --azul-claro: rgb(21, 21, 192);
     --rojo-pastel: #FF7043;
     --gris-claro: #E0E0E0;
     --gris-medio: #BDBDBD;
     --gris-oscuro: #757575;
     --celeste-pastel: #81D4FA;
+    --celeste: #26a4f2;
     --fondo: #F5F5F5;
     --texto: #212121;
     --blanco: #FFFFFF;
@@ -21,7 +24,8 @@
 
 
 body {
-    background-color: var(--fondo);
+    background: rgb(2, 0, 36);
+    background: linear-gradient(176deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 38%, rgba(0, 212, 255, 1) 100%);
     color: var(--texto);
     line-height: 1.6;
 }
@@ -29,7 +33,7 @@ body {
 header {
     text-align: center;
     padding: 20px;
-    background-color: var(--naranja-pastel);
+    background-color: transparent;
     color: var(--blanco);
 }
 
@@ -44,7 +48,7 @@ header h1 {
 }
 
 button {
-    background-color: var(--rojo-pastel);
+
     color: var(--blanco);
     border: none;
     padding: 10px 20px;
@@ -54,17 +58,17 @@ button {
 }
 
 button:hover {
-    background-color: var(--rojo-pastel);
+    background-color: var(--celeste);
 }
 
 button.button-outline {
     background-color: transparent;
-    border: 2px solid var(--rojo-pastel);
-    color: var(--rojo-pastel);
+    border: 2px solid var(--celeste);
+    color: var(--celeste-pastel);
 }
 
 button.button-outline:hover {
-    background-color: var(--rojo-pastel);
+    background-color: var(--celeste);
     color: var(--blanco);
 }
 
@@ -127,12 +131,12 @@ td.quitar-carrito {
 
 /* Estilo del botón COMPRAR */
 #btnComprar {
-    background-color: var(--naranja-pastel);
+    background-color: var(--azul);
     color: var(--blanco);
 }
 
 #btnComprar:hover {
-    background-color: var(--rojo-pastel);
+    background-color: var(--azul-claro);
 }
 
 /* MODAL */

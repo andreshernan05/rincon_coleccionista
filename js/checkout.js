@@ -72,7 +72,6 @@ function eliminarProductos() {
     })
 }
 
-
 function realizarCompra() {
 
     Swal.fire({
@@ -93,5 +92,29 @@ function realizarCompra() {
 //EVENTOS
 
 btnComprar.addEventListener("click", realizarCompra)
+
+// MODAL PARA VER IMAGENES
+
+document.addEventListener('DOMContentLoaded', (event) => {
+    const imgs = document.querySelectorAll('.imagen-carrito img');
+
+    imgs.forEach(img => {
+        img.addEventListener('click', function () {
+            Swal.fire({
+                imageUrl: this.src,
+                imageAlt: 'Producto',
+                showCloseButton: true,
+                showConfirmButton: false,
+                imageWidth: 300,
+                imageHeight: 400,
+                imageClass: 'swal-image',
+                customClass: {
+                    image: 'swal-image',
+                    popup: 'swal-popup',
+                },
+            });
+        });
+    });
+});
 
 cargarProductosDelCarrito() // Función principal
